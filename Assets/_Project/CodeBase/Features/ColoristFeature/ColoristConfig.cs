@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CodeBase.Features.ColoristFeature
@@ -14,8 +15,20 @@ namespace CodeBase.Features.ColoristFeature
         }
         
         public string textConfigName = string.Empty;
-        public Transform cubePrefab;
+        public MeshRenderer cubePrefab;
         public Vector3[] cubePositions;
         public DigitAndColorPair[] cubeColors;
+
+        public Dictionary<int, Color> cachedColors;
+
+        private void Awake()
+        {
+            cachedColors = new Dictionary<int, Color>();
+
+            foreach (var digitAndColorPair in cubeColors)
+            {
+                cachedColors.Add(digitAndColorPair.digit, digitAndColorPair.color);
+            }
+        }
     }
 }

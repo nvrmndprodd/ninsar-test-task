@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ColoristConfig
   m_EditorClassIdentifier: 
   textConfigName: colors.json
+  cubePrefab: {fileID: 6032802353165386618, guid: 99bb214f233b7144784838918b5522e6, type: 3}
   cubePositions:
   - {x: 0, y: 0, z: 0.52}
   - {x: 0, y: 0, z: 2.55}

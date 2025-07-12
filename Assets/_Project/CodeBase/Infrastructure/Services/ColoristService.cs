@@ -27,6 +27,13 @@ namespace CodeBase.Infrastructure.Services
             Debug.Log($"{nameof(ColoristService)} created");
         }
 
+        // for debug purposes
+        public void ResetColors()
+        {
+            _model.colorsPicker.ResetPosition();
+            _colorist.ColorCubes();
+        }
+
         private void OnGameStateChanged(GameStateType state)
         {
             switch (state)
@@ -47,17 +54,22 @@ namespace CodeBase.Infrastructure.Services
         {
             _inputService.MovePerformed += OnMovePerformed;
             await _model.LoadConfigs();
+            
+            _colorist.SpawnCubes();
+            _colorist.ColorCubes();
         }
 
         private void Clear()
         {
             _inputService.MovePerformed -= OnMovePerformed;
             _model.UnloadConfigs();
+            _colorist.DestroyCubes();
         }
 
         private void OnMovePerformed(Vector2 input)
         {
             _colorist.MoveColors(input);
+            _colorist.ColorCubes();
         }
     }
 }
