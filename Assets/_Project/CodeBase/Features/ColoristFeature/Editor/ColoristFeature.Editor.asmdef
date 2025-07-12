@@ -1,0 +1,18 @@
+{
+    "name": "ColoristFeature.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1dfa590fa534de44783161134ad9bfca"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

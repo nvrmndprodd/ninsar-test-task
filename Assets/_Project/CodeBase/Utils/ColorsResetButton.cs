@@ -1,6 +1,4 @@
-﻿#if UNITY_EDITOR
-
-using CodeBase.Infrastructure.Services;
+﻿using CodeBase.Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,4 +22,3 @@ namespace Codebase.Utils
         }
     }
 }
-#endif
