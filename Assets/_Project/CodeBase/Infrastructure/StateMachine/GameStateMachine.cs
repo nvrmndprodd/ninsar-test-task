@@ -6,6 +6,8 @@ namespace CodeBase.Infrastructure.StateMachine
 {
     public class GameStateMachine
     {
+        public event Action<GameStateType> StateChanged;
+        
         private readonly Dictionary<Type, IState> _states;
         
         private IState _currentState;
@@ -24,6 +26,8 @@ namespace CodeBase.Infrastructure.StateMachine
             _currentState?.Exit();
             _currentState = _states[typeof(TState)];
             _currentState.Enter();
+            
+            StateChanged?.Invoke(StateConverter.ToEnum(_currentState));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CodeBase.Infrastructure.Services
         {
             SceneLoader sceneLoader = new SceneLoader();
             GameStateMachine stateMachine = new GameStateMachine(sceneLoader);
+            ColoristService colorist = new ColoristService(stateMachine);
             
             _container.Add(typeof(SceneLoader), sceneLoader);
             _container.Add(typeof(GameStateMachine), stateMachine);
