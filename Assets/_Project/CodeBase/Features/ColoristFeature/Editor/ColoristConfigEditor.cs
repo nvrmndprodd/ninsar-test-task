@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeBase.Features.Colorist.Editor
+namespace CodeBase.Features.ColoristFeature.Editor
 {
     [CustomEditor(typeof(ColoristConfig))]
     public class ColoristConfigEditor : UnityEditor.Editor

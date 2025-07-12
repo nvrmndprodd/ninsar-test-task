@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Infrastructure.StateMachine;
+using CodeBase.Input;
 
 namespace CodeBase.Infrastructure.Services
 {
@@ -12,13 +13,15 @@ namespace CodeBase.Infrastructure.Services
         {
             SceneLoader sceneLoader = new SceneLoader();
             InputService inputService = new InputService();
+            StaticDataService staticDataService = new StaticDataService();
             GameStateMachine stateMachine = new GameStateMachine(sceneLoader);
-            ColoristService colorist = new ColoristService(stateMachine);
+            ColoristService coloristService = new ColoristService(stateMachine, staticDataService, inputService);
             
             _container.Add(typeof(SceneLoader), sceneLoader);
             _container.Add(typeof(InputService), inputService);
+            _container.Add(typeof(StaticDataService), staticDataService);
             _container.Add(typeof(GameStateMachine), stateMachine);
-            _container.Add(typeof(ColoristService), colorist);
+            _container.Add(typeof(ColoristService), coloristService);
         }
 
         public static TService Resolve<TService>() where TService : class

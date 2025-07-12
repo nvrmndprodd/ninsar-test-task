@@ -1,5 +1,7 @@
 ﻿using System;
+using CodeBase.Features.ColoristFeature;
 using CodeBase.Infrastructure.StateMachine;
+using CodeBase.Input;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Services
@@ -7,10 +9,18 @@ namespace CodeBase.Infrastructure.Services
     public class ColoristService
     {
         private readonly GameStateMachine _stateMachine;
+        private readonly InputService _inputService;
+        
+        private readonly ColoristModel _model;
+        private readonly Colorist _colorist;
 
-        public ColoristService(GameStateMachine stateMachine)
+        public ColoristService(GameStateMachine stateMachine, StaticDataService staticDataService, InputService inputService)
         {
             _stateMachine = stateMachine;
+            _inputService = inputService;
+
+            _model = new ColoristModel(staticDataService);
+            _colorist = new Colorist(_model);
 
             _stateMachine.StateChanged += OnGameStateChanged;
             
@@ -33,14 +43,21 @@ namespace CodeBase.Infrastructure.Services
             }
         }
 
-        private void ListenGameServices()
+        private async void ListenGameServices()
         {
-            
+            _inputService.MovePerformed += OnMovePerformed;
+            await _model.LoadConfigs();
         }
 
         private void Clear()
         {
-            
+            _inputService.MovePerformed -= OnMovePerformed;
+            _model.UnloadConfigs();
+        }
+
+        private void OnMovePerformed(Vector2 input)
+        {
+            _colorist.MoveColors(input);
         }
     }
 }
