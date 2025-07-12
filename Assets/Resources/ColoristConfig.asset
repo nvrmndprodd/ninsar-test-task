@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6eecc6c561246138d0a432bbd53bac9, type: 3}
+  m_Name: ColoristConfig
+  m_EditorClassIdentifier: 
+  textConfigName: 
+  cubePositions:
+  - {x: 0, y: 0, z: 0.52}
+  - {x: 0, y: 0, z: 2.55}
+  - {x: 0, y: 0, z: 4.58}
+  - {x: 1.76, y: 0, z: 0.33}
+  - {x: 1.76, y: 0, z: 2.52}
+  - {x: 1.76, y: 0, z: 4.58}
+  - {x: 3.85, y: 0, z: 0.33}
+  - {x: 3.85, y: 0, z: 2.46}
+  - {x: 3.85, y: 0, z: 4.57}
+  cubeColors:
+  - digit: 1
+    color: {r: 1, g: 0, b: 0, a: 0}
+  - digit: 2
+    color: {r: 0.981415, g: 1, b: 0.18396229, a: 0}
+  - digit: 3
+    color: {r: 0.027411906, g: 0.08235469, b: 0.8301887, a: 0}
+  - digit: 4
+    color: {r: 0.4433962, g: 0.12758097, b: 0.39095014, a: 0}
