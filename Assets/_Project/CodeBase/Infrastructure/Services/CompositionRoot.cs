@@ -11,11 +11,14 @@ namespace CodeBase.Infrastructure.Services
         public static void BuildGlobalScope()
         {
             SceneLoader sceneLoader = new SceneLoader();
+            InputService inputService = new InputService();
             GameStateMachine stateMachine = new GameStateMachine(sceneLoader);
             ColoristService colorist = new ColoristService(stateMachine);
             
             _container.Add(typeof(SceneLoader), sceneLoader);
+            _container.Add(typeof(InputService), inputService);
             _container.Add(typeof(GameStateMachine), stateMachine);
+            _container.Add(typeof(ColoristService), colorist);
         }
 
         public static TService Resolve<TService>() where TService : class

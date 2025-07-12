@@ -1,5 +1,6 @@
 ﻿using System;
 using CodeBase.Infrastructure.StateMachine;
+using UnityEngine;
 
 namespace CodeBase.Infrastructure.Services
 {
@@ -12,6 +13,8 @@ namespace CodeBase.Infrastructure.Services
             _stateMachine = stateMachine;
 
             _stateMachine.StateChanged += OnGameStateChanged;
+            
+            Debug.Log($"{nameof(ColoristService)} created");
         }
 
         private void OnGameStateChanged(GameStateType state)

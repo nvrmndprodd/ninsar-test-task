@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CodeBase.Infrastructure.Services;
+using UnityEngine;
 
 namespace CodeBase.Infrastructure.StateMachine
 {
@@ -19,6 +20,8 @@ namespace CodeBase.Infrastructure.StateMachine
                 { typeof(BootstrapState), new BootstrapState(this, sceneLoader) },
                 { typeof(GameLoopState), new GameLoopState(this) },
             };
+            
+            Debug.Log($"{nameof(GameStateMachine)} created");
         }
 
         public void Enter<TState>() where TState : IState
